@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <i class="fa-solid fa-book-open"></i>  
+        <div class="header">
+        <h1 >My<span class="head">Book</span>List</h1>
+        </div>
+        <form class="myform">
+            <div class="con">
+                <h2>Title:</h2><br>
+                <input type="text" name="title" class="n">
+            </div>
+            <div class="con">
+                <h2>Author:</h2><br>
+                <input type="text" name="author" id="">
+            </div>
+            <div class="con">
+                <h2>Id#:</h2><br>
+                <div class="idd">
+                    <input type="text" name="id" id="">
+                </div>
+                
+                <p class="warn d-none">Please enter the ID</p>
+            </div>
+            <br>
+            <div class="btn">
+                <input type="submit" value="Submit" class="btn1">
+            </div>
+            
+        </form>
+        <br>
+        <table class="table table-bordered responsive table-hover">
+            <thead class="t_head">
+              <tr class="t_row">
+                <th scope="col">S.No</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">ID</th>
+              </tr>
+            </thead>
+            <tbody class="rows">
+                <tr class="disp">
+
+                </tr>
+                
+            </tbody>
+        </table>          
+        
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>
