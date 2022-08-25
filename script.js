@@ -4,16 +4,13 @@ const display = document.querySelector('.rows');
 const warn = document.querySelector('.warn');
 const id1 = document.querySelector('.idd');
 let i=1;
-let j=0;
-if(localStorage.getItem('title')){
-    j=details.length;
-}
-let details=[];
+let k=0;
+// let details=[];
 const updateAof = ((title1,author1,id1) =>{
     let temp=[{title : title1,author : author1,id : id1}];
-    details[j]=temp[0];
-    localStorage.setItem('details',JSON.stringify(details));
-    j=j+1;
+    te[k]=temp[0];
+    localStorage.setItem('details',JSON.stringify(te));
+    k=k+1;
 });
 const updateUI = ((i,title,author,id)=>{
     let id1= parseInt(id);
@@ -50,18 +47,17 @@ form.addEventListener('submit',e=>{
     const title = form.title.value;
     const author = form.author.value;
     const id = form.id.value;
-    console.log(id.length);
+    // console.log(id.length);
     if(id.length==0){
         warning();
     }
     else{
     warn.classList.add('d-none');
     id1.classList.remove('wborder');
-    localStorage.setItem('title',title);
     updateUI(i,title,author,id);
     i=i+1;
     updateAof(title,author,id);
-    console.log(details.length);
+    // console.log(details.length);
     form.reset()
     }
 });
@@ -78,7 +74,21 @@ table.addEventListener('click',e=>{
 
 
 const todos = [
-    {text : 'play football', author : 'anish'},
-    {text : 'see insta', author : 'agal'},
-    {text : 'get the whole world', author : 'aadvik'}
+    {text : 'play football', author : 'anish'}
 ];
+let te=[]
+if(localStorage.getItem('details')){
+    te1=localStorage.getItem('details');
+    te=JSON.parse(te1);
+    console.log(te.length);
+    for(let j=0;j<te.length;j++){
+        let tr1=te[j];
+        console.log(tr1['title']);
+        updateUI(i,tr1['title'],tr1['author'],tr1['id']);
+        i++;
+    }
+    k=te.length;
+    // let tr1=te[1];
+    // console.log(tr1);
+    // console.log(tr1['title']);
+}
