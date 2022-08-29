@@ -9,7 +9,9 @@ let k=0;
 const updateAof = ((title1,author1,id1) =>{
     let temp=[{title : title1,author : author1,id : id1}];
     te[k]=temp[0];
-    localStorage.setItem('details',JSON.stringify(te));
+    tee=temp[0];
+    // localStorage.setItem('details',JSON.stringify(te));
+    localStorage.setItem(`item${k}`,JSON.stringify(tee));
     k=k+1;
 });
 const updateUI = ((i,title,author,id)=>{
@@ -26,7 +28,7 @@ const updateUI = ((i,title,author,id)=>{
     }
     else{
         const html = `
-        <tr class="disp2">
+        <tr class="disp">
         <th scope="row">${i}</th>
         <th scope="row">${title}</th>
         <th scope="row">${author}</th>    
@@ -59,6 +61,8 @@ form.addEventListener('submit',e=>{
     updateAof(title,author,id);
     // console.log(details.length);
     form.reset()
+console.log(k);
+
     }
 });
 
@@ -67,6 +71,11 @@ const deletee = document.querySelector('.disp');
 table.addEventListener('click',e=>{
     if(e.target.classList.contains('delete')){
         i=i-1;
+        // te1=localStorage.getItem('details');
+        // te=JSON.parse(te1);
+        // console.log(te.length);
+        // let tr1=te[2];
+        localStorage.removeItem('item0');
         e.target.parentElement.parentElement.remove();
     }
 });
@@ -77,18 +86,31 @@ const todos = [
     {text : 'play football', author : 'anish'}
 ];
 let te=[]
-if(localStorage.getItem('details')){
-    te1=localStorage.getItem('details');
-    te=JSON.parse(te1);
-    console.log(te.length);
-    for(let j=0;j<te.length;j++){
-        let tr1=te[j];
-        console.log(tr1['title']);
-        updateUI(i,tr1['title'],tr1['author'],tr1['id']);
-        i++;
-    }
-    k=te.length;
+console.log(k);
+while(true){
+if(localStorage.getItem(`item${k}`)){
+    te=localStorage.getItem(`item${k}`);
+    te1=JSON.parse(te);
+    console.log(te1);
+    updateUI(i,te1['title'],te1['author'],te1['id']);
+    i++;
+    // te1=localStorage.getItem('details');
+    // te=JSON.parse(te1);
+    // console.log(te.length);
+    // for(let j=0;j<te.length;j++){
+    //     let tr1=te[j];
+    //     console.log(tr1['title']);
+    //     updateUI(i,tr1['title'],tr1['author'],tr1['id']);
+    //     i++;
+    //     k++;
+    // }
+    // k=te.length;
+    k++;
     // let tr1=te[1];
     // console.log(tr1);
     // console.log(tr1['title']);
+}
+else{
+    break;
+}
 }
